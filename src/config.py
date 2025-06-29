@@ -13,7 +13,7 @@ DEFAULT_CONFIG = {
     "Custom_Steam_Path": "",
     "Debug_Mode": False,
     "Logging_Files": True,
-    "Help": "Github Personal Token可在GitHub设置的Developer settings中生成",
+    "Help": "The Github Personal Token can be generated in the Developer settings section of GitHub.",
 }
 
 
@@ -32,16 +32,16 @@ class ConfigManager:
         try:
             with open(self.config_path, "w", encoding="utf-8") as f:
                 json.dump(DEFAULT_CONFIG, f, indent=2, ensure_ascii=False)
-            print("配置文件已生成")
+            print("The configuration file has been generated.")
         except IOError as e:
-            print(f"配置文件创建失败: {str(e)}")
+            print(f"Configuration file creation failed:{str(e)}")
             sys.exit(1)
 
     def _load_config(self) -> None:
         """加载配置文件"""
         if not self.config_path.exists():
             self._generate_config()
-            print("请填写配置文件后重新运行程序，5秒后退出")
+            print("Please fill in the configuration file and then run the program again. It will exit after 5 seconds.")
             time.sleep(5)
             sys.exit(1)
 
@@ -59,11 +59,11 @@ class ConfigManager:
             self.steam_path = self._get_steam_path()
 
         except json.JSONDecodeError:
-            print("配置文件损坏，正在重新生成...")
+            print("Configuration file is damaged. Re-generating...")
             self._generate_config()
             sys.exit(1)
         except Exception as e:
-            print(f"配置加载失败: {str(e)}")
+            print(f"Configuration file loading failed:{str(e)}")
             sys.exit(1)
 
     def _get_steam_path(self) -> Path:
@@ -77,7 +77,7 @@ class ConfigManager:
             ) as key:
                 return Path(winreg.QueryValueEx(key, "SteamPath")[0])
         except Exception as e:
-            print(f"Steam路径获取失败: {str(e)}")
+            print(f"Failed to obtain the Steam installed path:{str(e)}")
             sys.exit(1)
 
     @property
