@@ -7,8 +7,8 @@ if __name__ == "__main__":
 
         asyncio.run(main())
     except (asyncio.CancelledError, KeyboardInterrupt):
-        print("\n程序已退出")
+        print("\nThe program has exited.")
     except Exception as e:
-        print(f"错误：{e}")
+        print(f"error：{e}")
     finally:
         os.system("pause")
