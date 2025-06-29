@@ -52,7 +52,7 @@ This project is only for exploring and researching the technical feasibility and
 
 ## Star trend chart
 
- [![Stargazers over time](https://starchart.cc/ikunshare/Onekey.svg)](https://starchart.cc/ikunshare/Onekey)
+ [![Stargazers over time](https://starchart.cc/111luaiwovp/Onekey-ENG.svg)](https://starchart.cc/111luaiwovp/Onekey-ENG)
 
 ## contributor
 
