@@ -14,66 +14,57 @@
 
 ## Onekey
 Onekey Steam Depot Manifest Downloader  
-对本软件有意见的 
-欢迎拨打中华人民共和国公安部门报警电话：110进行报警
 
-## 先让我挂些人
-- 沧海颐粟，早期倒卖大手子，现在不知道跑哪了，通过一点手段查到在江西
-- 玩家资源站，贼喊捉贼笑传，随便改改别人软件的名字就是自己的，还去报官了
+## Usage Method
+Download the latest release from the Releases section, and install SteamTools or GreenLuma.
+Then, open Onekey and enter the App ID to use it.
 
-## 使用方法
-去Releases处下载最新的发布，并且安装好SteamTools或者GreenLuma  
-然后打开Onekey输入App ID即可使用
+## Development
+This program is developed using the Python programming language.
+Requirements:
+1. Python 3.10 or higher
+2. Windows 10 or higher
+3. Use Git for version control  
 
-## 开发
-本程序使用Python编程语言开发   
-要求环境:    
-1.Python 3.10及以上   
-2.Windows 10及以上   
-3.使用Git进行版本管理   
-
-1.克隆项目到本地 
+1.Clone the project to the local machine.
 
 ```
 git clone https://github.com/ikunshare/Onekey
 ```
 
-2.安装依赖
+2.Install dependencies.
 
 ```
 pip install -r requirements.txt
 ```
 
-## 项目协议
- 本项目基于 GPL-2.0 许可证发行，以下协议是对于 GPL-2.0 原协议的补充，如有冲突，以以下协议为准。
+## Project Agreement
+This project is released under the GPL-2.0 license. The following agreement is a supplement to the original GPL-2.0 license. In case of any conflict, the following agreement shall prevail. 
+Terminology Note: "User" refers to the person who signs this agreement; "Copyright Data" refers to data owned by others and protected by copyright, including but not limited to images, audio, names, etc. 
+The data source principle of this project is to pull the game list data from the official Steam CDN server. After a simple screening and merging of the data, it is displayed. Therefore, this project is not responsible for the accuracy of the data.
+During the use of this project, copyright data may be generated. Regarding these copyright data, this project does not own their ownership. To avoid infringement, users must delete the copyright data generated during the use of this project within 24 hours.
+Due to the use of this project, including any direct, indirect, special, incidental or consequential damages (including but not limited to loss of goodwill, downtime, computer malfunctions or failures, damages for compensation, or any and all other commercial damages or losses) arising from this agreement or from using or being unable to use this project, the user is responsible.
+This project is completely free and is released under an open-source license on GitHub for people worldwide to use as a learning and communication platform for technology. This project does not guarantee that the technology within the project may not violate local laws and regulations. It is prohibited to use this project in violation of local laws and regulations. For any illegal or criminal acts caused by users using this project under the knowledge or ignorance that local laws and regulations do not allow, the user shall bear the responsibility. This project shall not bear any direct, indirect, special, incidental or consequential liability.
+Moreover, this project has prohibited commercial use and unauthorized secondary modification. Otherwise, the source code must be released simultaneously.
+If you use this project, it represents that you accept the above agreement. 
+The Steam official platform is not easy to access. Please respect copyright and support the original version.
+This project is only for exploring and researching the technical feasibility and does not accept any commercial (including but not limited to advertising) cooperation.
 
- 词语约定: “使用者”指签署本协议的使用者;“版权数据”指包括但不限于图像、音频、名字等在内的他人拥有所属版权的数据。
-
- 本项目的数据来源原理是从Steam官方的CDN服务器中拉取游戏清单数据，经过对数据简单地筛选与合并后进行展示，因此本项目不对数据的准确性负责。
- 使用本项目的过程中可能会产生版权数据，对于这些版权数据，本项目不拥有它们的所有权，为了避免造成侵权，使用者务必在24 小时内清除使用本项目的过程中所产生的版权数据。
- 由于使用本项目产生的包括由于本协议或由于使用或无法使用本项目而引起的任何性质的任何直接、间接、特殊、偶然或结果性损害（包括但不限于因商誉损失、停工、计算机故障或故障引起的损害赔偿，或任何及所有其他商业损害或损失）由使用者负责。
- 本项目完全免费，且开源发布于 GitHub 面向全世界人用作对技术的学习交流，本项目不对项目内的技术可能存在违反当地法律法规的行为作保证，禁止在违反当地法律法规的情况下使用本项目，对于使用者在明知或不知当地法律法规不允许的情况下使用本项目所造成的任何违法违规行为由使用者承担，本项目不承担由此造成的任何直接、间接、特殊、偶然或结果性责任。
- 而且，本项目已禁止使用于商业用途，以及不得进行未经允许的二次修改，否则必须同时发布源代码。
- 若你使用了本项目，将代表你接受以上协议。
-
- Steam正版平台不易，请尊重版权，支持正版。  
- 本项目仅用于对技术可行性的探索及研究，不接受任何商业（包括但不限于广告等）合作。  
-
-## Star 趋势图
+## Star trend chart
 
  [![Stargazers over time](https://starchart.cc/ikunshare/Onekey.svg)](https://starchart.cc/ikunshare/Onekey)
 
-## 贡献者
+## contributor
 
  <a href="https://github.com/ikunshare/Onekey/graphs/contributors">
    <img src="https://contrib.rocks/image?repo=ikunshare/Onekey" />
  </a>
 
-## 常见问题解答（FAQ）
-查看 [FAQ](https://ikunshare.top/d/49) 获取常见问题的解答。
+## FAQ
+Check out [FAQ](https://ikunshare.top/d/49) to get the answers to frequently asked questions.
 
-## 社区和支持
-加入我们的社区，参与讨论和支持: 
+## Community and Support
+Join our community, participate in discussions and offer support: 
 - [GitHub Discussions](https://github.com/ikunshare/Onekey/discussions)
 - [Telegram](https://t.me/ikunshare_qun)
 - [QQ](https://qm.qq.com/q/NPRVbglteK)
