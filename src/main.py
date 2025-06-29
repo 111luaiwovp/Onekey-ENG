@@ -31,18 +31,18 @@ class OnekeyApp:
         """显示横幅"""
         self.logger.info(BANNER)
         self.logger.info(
-            f"本程序源代码基于GPL 2.0许可证开放于Github"
+            f"The source code of this program is open on Github under the GPL 2.0 license."
         )
         self.logger.info(
-            f"作者: {__author__} | 版本: {__version__} | 官网: {__website__}"
+            f"Author: {__author__} | Version: {__version__} | Official Website: {__website__}"
         )
-        self.logger.info("项目仓库: GitHub: https://github.com/ikunshare/Onekey")
-        self.logger.warning("ikunshare.top | 严禁倒卖")
+        self.logger.info("Repository: GitHub: https://github.com/ikunshare/Onekey")
+        self.logger.warning("ikunshare.top | Prohibition of resale")
         self.logger.warning(
-            "提示: 请确保已安装Windows 10/11并正确配置Steam;SteamTools/GreenLuma"
+            "Note: Make sure you have Windows 10/11 installed and properly configure Steam. SteamTools/GreenLuma"
         )
         if not self.config.app_config.github_token:
-            self.logger.warning("开梯子必须配置Token, 你的IP我不相信能干净到哪")
+            self.logger.warning("If you use the VPN, a Token must be configured. I don't believe your IP address can be that clean.")
 
     async def handle_depot_files(
         self, app_id: str
@@ -55,8 +55,8 @@ class OnekeyApp:
         if not repo_info:
             return depot_list, depot_map
 
-        self.logger.info(f"当前选择清单仓库: https://github.com/{repo_info.name}")
-        self.logger.info(f"此清单分支上次更新时间：{repo_info.last_update}")
+        self.logger.info(f"Current selected manifest repository: https://github.com/{repo_info.name}")
+        self.logger.info(f"The last update time of this manifest branch：{repo_info.last_update}")
 
         branch_url = f"https://api.github.com/repos/{repo_info.name}/branches/{app_id}"
         branch_res = await self.client.get(
@@ -77,14 +77,14 @@ class OnekeyApp:
             if file_path.endswith(".manifest"):
                 save_path = depot_cache / file_path
                 if save_path.exists():
-                    self.logger.warning(f"已存在清单: {save_path}")
+                    self.logger.warning(f"Existing manifest: {save_path}")
                     continue
 
                 content = await self.github.fetch_file(
                     repo_info.name, repo_info.sha, file_path
                 )
                 save_path.write_bytes(content)
-                self.logger.info(f"清单下载成功: {file_path}")
+                self.logger.info(f"Manifest download successful: {file_path}")
 
                 depot_id, manifest_id = parse_manifest_filename(file_path)
                 if depot_id and manifest_id:
@@ -110,25 +110,25 @@ class OnekeyApp:
 
             await self.github.check_rate_limit()
 
-            self.logger.info(f"正在处理游戏 {app_id}...")
+            self.logger.info(f"Game is currently being processed: {app_id}...")
             depot_data, depot_map = await self.handle_depot_files(app_id)
 
             if not depot_data:
-                self.logger.error("未找到此游戏的清单")
+                self.logger.error("No manifest of this game was found.")
                 return
 
-            print("\n请选择解锁工具:")
+            print("\nPlease select the unlocking tool:")
             print("1. SteamTools")
             print("2. GreenLuma")
 
-            choice = input("请输入选择 (1/2): ").strip()
+            choice = input("Please enter your choice (1/2): ").strip()
 
             if choice == "1":
                 tool = SteamTools(self.config.steam_path)
 
                 version_lock = False
                 lock_choice = input(
-                    "是否锁定版本(推荐在选择仓库SteamAutoCracks/ManifestHub时使用)?(y/n): "
+                    "Is version locking enabled (recommended to use when selecting the repository SteamAutoCracks/ManifestHub)? (y/n):"
                 ).lower()
                 if lock_choice == "y":
                     version_lock = True
@@ -140,17 +140,17 @@ class OnekeyApp:
                 tool = GreenLuma(self.config.steam_path)
                 success = await tool.setup(depot_data, app_id)
             else:
-                self.logger.error("无效的选择")
+                self.logger.error("An ineffective choice.")
                 return
 
             if success:
-                self.logger.info("游戏解锁配置成功！")
-                self.logger.info("重启Steam后生效")
+                self.logger.info("Game unlocking configuration successful!")
+                self.logger.info("It will take effect after restarting Steam.")
             else:
-                self.logger.error("配置失败")
+                self.logger.error("Unlock the game failed.")
 
         except Exception as e:
-            self.logger.error(f"运行错误: {traceback.format_exc()}")
+            self.logger.error(f"error: {traceback.format_exc()}")
         finally:
             await self.client.close()
 
@@ -160,11 +160,11 @@ async def main():
     app = OnekeyApp()
     app.show_banner()
 
-    app_id = input("\n请输入游戏AppID: ").strip()
+    app_id = input("\nPlease enter the game AppID: ").strip()
 
     app_id_list = [id for id in app_id.split("-") if id.isdigit()]
     if not app_id_list:
-        app.logger.error("App ID无效")
+        app.logger.error("Invalid App ID")
         return
 
     await app.run(app_id_list[0])
