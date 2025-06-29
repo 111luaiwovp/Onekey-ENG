@@ -35,15 +35,15 @@ class GitHubAPI:
                 reset_formatted = time.strftime(
                     "%Y-%m-%d %H:%M:%S", time.localtime(reset_time)
                 )
-                self.logger.info(f"剩余Github API请求次数: {remaining}")
+                self.logger.info(f"Remaining number of Github API request attempts: {remaining}")
                 if remaining == 0:
                     self.logger.warning(
-                        f"GitHub API 请求数已用尽, 将在 {reset_formatted} 重置"
+                        f"The number of GitHub API requests has been exhausted. The system will reset at {reset_formatted}."
                     )
             else:
-                self.logger.error("Github请求数检查失败, 网络错误")
+                self.logger.error("Failed to check the number of Github requests. Network error.")
         except Exception as e:
-            self.logger.error(f"检查Github API 请求数失败: {str(e)}")
+            self.logger.error(f"Failed to check the number of Github API requests: {str(e)}")
 
     async def get_latest_repo_info(
         self, repos: List[str], app_id: str
@@ -67,7 +67,7 @@ class GitHubAPI:
                             selected_repo = repo
                             selected_sha = r_json["commit"]["sha"]
             except Exception as e:
-                self.logger.warning(f"检查仓库 {repo} 失败: {str(e)}")
+                self.logger.warning(f"Checking the repository {repo} failed: {str(e)}")
 
         if selected_repo:
             return RepoInfo(
@@ -87,6 +87,6 @@ class GitHubAPI:
                     if r.status_code == 200:
                         return r.content
                 except Exception as e:
-                    self.logger.debug(f"从 {url} 下载失败: {str(e)}")
+                    self.logger.debug(f"Failed to download from {url}: {str(e)}")
 
-        raise Exception(f"无法下载文件: {path}")
+        raise Exception(f"Failed to download file: {path}")
