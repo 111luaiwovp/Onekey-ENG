@@ -36,7 +36,7 @@ class OnekeyApp:
         self.logger.info(
             f"Author: {__author__} | Version: {__version__} | Official Website: {__website__}"
         )
-        self.logger.info("Repository: GitHub: https://github.com/ikunshare/Onekey")
+        self.logger.info("GitHub Repository: https://github.com/ikunshare/Onekey")
         self.logger.warning("ikunshare.top | Prohibition of resale")
         self.logger.warning(
             "Note: Make sure you have Windows 10/11 installed and properly configure Steam. SteamTools/GreenLuma"
