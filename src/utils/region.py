@@ -22,11 +22,11 @@ class RegionDetector:
 
             if not is_cn:
                 self.logger.info(
-                    f"您在非中国大陆地区({country})上使用了项目, "
-                    "已自动切换回Github官方下载CDN"
+                    f"You have used the project in the non-China region ({country}). "
+                    "The system has automatically switched back to the official Github download CDN."
                 )
 
             return is_cn, country
         except Exception as e:
-            self.logger.warning("检查服务器位置失败，自动认为你在中国大陆")
+            self.logger.warning("Failed to check the server location. Automatically assume that you are in China mainland.")
             return True, "CN"
